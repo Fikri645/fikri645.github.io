@@ -61,6 +61,8 @@
     </div>
     <!-- End Preloader -->
 
+    <div class="myalert-container"></div>
+
     <!-- Start Header -->
     <header id="header">
       <div class="container">
@@ -400,7 +402,7 @@
         <div class="row">
           <!-- Contact Form -->
           <div class="col-md-6 col-sm-6 col-xs-12 wow fadeInLeft" data-wow-delay="0.4s">
-            <form class="form" method="post" action="#">
+            <form name="submit-to-google-sheet" class="form">
               <div class="row">
                 <div class="col-md-6">
                   <div class="form-group">
@@ -414,12 +416,12 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group">
-                    <textarea name="message" rows="6" placeholder="Type Your Message Here"></textarea>
+                    <textarea name="message" rows="6" placeholder="Type Your Message Here" required="required"></textarea>
                   </div>
                 </div>
                 <div class="col-md-12">
                   <div class="form-group button">
-                    <button type="submit" class="button primary"><i class="fa fa-send"></i>Submit</button>
+                    <button type="submit" class="button primary" id="alertsubmit"><i class="fa fa-send"></i>Submit</button>
                   </div>
                 </div>
               </div>
@@ -548,5 +550,58 @@
 
     <!-- Main JS -->
     <script type="text/javascript" src="js/main.js"></script>
+
+    <!-- My Script -->
+    <script>
+      // Alert
+      const alertContainer = document.querySelector(".myalert-container");
+      const btnSubmit = document.getElementById("alertsubmit");
+
+      const createAlert = () => {
+        const newAlert = document.createElement("div");
+        const closeNewAlert = document.createElement("span");
+
+        newAlert.innerText = "Message has been sent successfully";
+
+        closeNewAlert.innerHTML = "&times;";
+
+        newAlert.appendChild(closeNewAlert);
+
+        newAlert.classList.add("myalert");
+
+        alertContainer.appendChild(newAlert);
+
+        setTimeout(() => {
+          newAlert.classList.add("myfadeOut");
+        }, 3000);
+
+        setTimeout(() => {
+          newAlert.remove();
+        }, 5000);
+      };
+
+      alertContainer.addEventListener("click", (e) => {
+        if (e.target.nodeName == "SPAN") {
+          e.target.parentNode.remove();
+        }
+      });
+      // EndAlert
+
+      // Submit Form
+      const scriptURL = "https://script.google.com/macros/s/AKfycbw83E73Ez1K7l2BNmUnqqBqjJi05dYzW90DkGb1BETDU5AlWn0i1BxqYsyzhg-1YvnOdw/exec";
+      const form = document.forms["submit-to-google-sheet"];
+
+      form.addEventListener("submit", (e) => {
+        e.preventDefault();
+        fetch(scriptURL, { method: "POST", body: new FormData(form) })
+          .then((response) => {
+            console.log("Success!", response);
+            createAlert();
+            form.reset();
+          })
+          .catch((error) => console.error("Error!", error.message));
+      });
+      // End Submit Form
+    </script>
   </body>
 </html>

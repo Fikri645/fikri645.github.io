@@ -2,6 +2,37 @@
   min-height: 380px;
 }
 
+.myfadeOut {
+  opacity: 0;
+}
+
+.myalert-container {
+  position: fixed;
+  right: 10px;
+  bottom: 10px;
+  z-index: 100;
+}
+
+.myalert {
+  position: relative;
+  background-color: #20c997;
+  height: 100px;
+  width: 250px;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  color: #fff;
+  padding: 20px 15px 0 15px;
+  transition: opacity 2s;
+}
+
+.myalert span {
+  font-size: 1.3rem;
+  position: absolute;
+  top: 3px;
+  right: 12px;
+  cursor: pointer;
+}
+
 /*=======================
 	Header CSS
 =========================*/
