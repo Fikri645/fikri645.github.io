@@ -1,0 +1,954 @@
+.about-me {
+  min-height: 380px;
+}
+
+/*=======================
+	Header CSS
+=========================*/
+#header {
+  top: 0;
+  width: 100%;
+  z-index: 99;
+  position: fixed;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background: rgb(0, 0, 0);
+}
+/* Logo */
+#header .logo {
+  padding-top: 17px;
+}
+#header .logo a {
+  color: #fff;
+  text-transform: capitalize;
+  font-size: 22px;
+  font-weight: 600;
+  position: relative;
+  padding-left: 16px;
+}
+#header .logo a::before {
+  position: absolute;
+  left: 0;
+  top: 12px;
+  width: 10px;
+  height: 10px;
+  content: "";
+  border-radius: 100%;
+}
+/* Main Menu */
+#header .nav-area {
+  position: relative;
+}
+#header .mainmenu {
+  float: left;
+  width: 100%;
+}
+#header .nav {
+  float: right;
+  margin-right: 30px;
+}
+#header .nav li {
+  position: relative;
+}
+#header .nav li a {
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 14px;
+  font-weight: 400;
+  padding: 20px 10px;
+  position: relative;
+  display: block;
+  background: transparent;
+}
+#header .nav li a::before {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  right: 50%;
+
+  border-radius: 0 0 10px 10px;
+  content: "";
+  height: 3px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+#header .nav li.active a::before,
+#header .nav li:hover a::before {
+  left: 10px;
+  right: 10px;
+}
+#header .nav li a::after {
+  position: absolute;
+  top: 3px;
+  left: 50%;
+  right: 50%;
+  content: "";
+  border-bottom: 5px solid transparent;
+  border-left: 5px solid transparent;
+  border-right: 5px solid transparent;
+  border-top: 5px solid;
+  margin-left: -2.5px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  opacity: 0;
+  visibility: hidden;
+}
+#header .nav li:hover a::after,
+#header .nav li.active a::after {
+  opacity: 1;
+  visibility: visible;
+}
+#header .nav li a i {
+  margin-right: 10px;
+  opacity: 0;
+  visibility: hidden;
+  position: relative;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+#header .nav li.active a i,
+#header .nav li:hover a i {
+  opacity: 1;
+  visibility: visible;
+  color: #fff;
+}
+#header .nav li ul {
+  position: absolute;
+  left: 0;
+  width: 220px;
+  background: #fff;
+  top: 100%;
+  border-radius: 0;
+  opacity: 1;
+  visibility: visible;
+  z-index: 333;
+  box-shadow: 0px 1px 4px #fff;
+  opacity: 0;
+  visibility: hidden;
+  -webkit-transform: translateY(50px);
+  -moz-transform: translateY(50px);
+  transform: translateY(50px);
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+#header .nav li:hover ul {
+  opacity: 1;
+  visibility: visible;
+  -webkit-transform: translateY(0px);
+  -moz-transform: translateY(0px);
+  transform: translateY(0px);
+}
+#header .nav li ul li {
+  margin-right: 0px;
+}
+#header .nav li ul li a {
+  color: #353535;
+  padding: 12px 10px;
+  text-transform: capitalize;
+}
+#header .nav li ul li a:before,
+#header .nav li ul li a:after {
+  display: none;
+}
+#header .nav li.active ul i,
+#header .nav li:hover ul i {
+  color: #353535;
+}
+
+/* Header Social */
+#header .social-icon {
+  position: absolute;
+  right: 0;
+  top: 20px;
+}
+#header .social-icon li a {
+  background: #fff;
+  width: 20px;
+  display: block;
+  height: 20px;
+  line-height: 20px;
+  text-align: center;
+  border-radius: 100%;
+  font-size: 13px;
+}
+#header .social {
+  position: absolute;
+  right: 0;
+  padding: 5px 20px;
+  border-radius: 3px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(100%);
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  overflow: hidden;
+  top: 100%;
+}
+#header .social.active {
+  transform: translateY(0%);
+  opacity: 1;
+  visibility: visible;
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+#header .social li {
+  display: inline-block;
+  margin-right: 15px;
+}
+#header .social li:last-child {
+  margin: 0;
+}
+#header .social li a {
+  color: #fff;
+}
+#header .social li a:hover i {
+  opacity: 0;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-animation-name: hvr-icon-drop;
+  animation-name: hvr-icon-drop;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  animation-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+
+/* Header Extra */
+#header.sticky {
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+}
+#header.sticky .nav li a,
+#header.sticky .logo a {
+  color: #353535;
+}
+#header.sticky .nav li ul {
+  -webkit-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
+}
+#header.sidenav {
+  position: fixed;
+  left: 0px;
+  max-width: 200px;
+  height: 100%;
+  padding: 40px 10px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+  -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+  background: #353535;
+}
+#header.sidenav {
+  transform: translateX(-100%);
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+#header.sidenav.active {
+  transform: translateX(0%);
+  -webkit-transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  transition-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+#header.sidenav .container {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+#header.sidenav .nav li a,
+#header.sidenav .logo a {
+  color: #fff;
+}
+#header.sidenav .logo {
+  margin-bottom: 25px;
+  padding: 0;
+}
+#header.sidenav .nav {
+  float: none;
+}
+#header.sidenav .nav li {
+  float: none;
+  margin: 0 0 30px;
+}
+#header.sidenav .nav li:last-child {
+  margin: 0;
+}
+#header.sidenav .nav li a {
+  padding: 0px;
+}
+#header.sidenav .nav li a::before,
+#header.sidenav .nav li a::after {
+  display: none;
+}
+#header.sidenav .nav li a i {
+  opacity: 1;
+  visibility: visible;
+}
+#header.sidenav .nav li:hover a i,
+#header.sidenav .nav li.active a i {
+  opacity: 1;
+  visibility: visible;
+}
+#header.sidenav .social {
+  position: relative;
+  opacity: 1;
+  visibility: visible;
+  transform: none;
+  margin-top: 25px;
+}
+#header .side-icon {
+  position: absolute;
+  top: 0;
+  right: -25px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+#header.active .side-icon {
+  right: -7px;
+}
+#header .side-icon a {
+  color: #fff;
+  width: 25px;
+  display: block;
+  height: 25px;
+  line-height: 25px;
+  text-align: center;
+  border-radius: 100%;
+  font-size: 14px;
+}
+#header.active .side-icon a i:before {
+  content: "\f00d";
+}
+#header.normal {
+  position: relative;
+  background: #fff;
+}
+#header.normal .nav li a,
+#header.normal .logo a {
+  color: #353535;
+}
+/*=======================
+	End Header
+=========================*/
+
+/*=======================
+	Personal CSS
+=========================*/
+
+#personal-area {
+  background-image: url("images/image3.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 680px;
+  position: relative;
+  background-position: center;
+}
+#personal-area .personal-single {
+  position: relative;
+  z-index: 3;
+}
+
+#personal-area .personal-text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  width: 100%;
+  height: 680px;
+  text-align: center;
+}
+
+/* Personal Animate Text */
+#personal-area .personal-text h1 {
+  color: #fff;
+  font-size: 45px;
+  text-transform: uppercase;
+  font-weight: 800;
+  margin-bottom: 25px;
+}
+#personal-area .personal-text h2 {
+  font-size: 25px;
+  text-transform: uppercase;
+  color: #eee;
+  margin-bottom: 25px;
+}
+#personal-area .personal-text h2 span {
+  display: inline-block;
+  padding: 0;
+}
+#personal-area .personal-text h2 b {
+  font-weight: 700;
+}
+#personal-area .my-info p {
+  color: #fff;
+  font-size: 15px;
+}
+#personal-area .personal-text .btn {
+  background: #fff;
+  color: #353535;
+  margin-right: 20px;
+  padding: 13px 35px;
+  overflow: hidden;
+  font-size: 15px;
+}
+#personal-area .btn {
+  top: 20px;
+}
+#personal-area .personal-text .btn:hover {
+  color: #fff;
+}
+#personal-area .personal-text .btn.primary {
+  color: #fff;
+}
+#personal-area .personal-text .btn i {
+  margin-right: 10px;
+}
+#personal-area .personal-text .btn:hover i {
+  opacity: 0;
+  -webkit-transition-duration: 0.3s;
+  transition-duration: 0.3s;
+  -webkit-animation-name: hvr-icon-drop;
+  animation-name: hvr-icon-drop;
+  -webkit-animation-duration: 0.5s;
+  animation-duration: 0.5s;
+  -webkit-animation-delay: 0.3s;
+  animation-delay: 0.3s;
+  -webkit-animation-fill-mode: forwards;
+  animation-fill-mode: forwards;
+  -webkit-animation-timing-function: ease-in-out;
+  animation-timing-function: ease-in-out;
+  -webkit-animation-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+  animation-timing-function: cubic-bezier(0.52, 1.64, 0.37, 0.66);
+}
+#personal-area .personal-text .btn:last-child {
+  margin: 0;
+}
+
+/*=======================
+	About Me CSS
+=========================*/
+#about-me {
+  padding: 0;
+  z-index: 44;
+  background: #f5f5f5;
+}
+#about-me.default {
+  background: #fff;
+  padding: 80px 0;
+}
+#about-me.default .tabs-main {
+  top: 0px;
+  margin-bottom: 0px;
+  margin-top: 20px;
+}
+#about-me .tabs-main {
+  position: relative;
+  z-index: 3;
+  border-radius: 10px;
+  margin-top: -45px;
+}
+#about-me .tabs-main .nav-tabs {
+  position: absolute;
+  top: 34px;
+  left: 30px;
+}
+#about-me .tabs-main .nav-tabs li {
+  float: none;
+  margin: 0;
+  padding-bottom: 50px;
+  position: relative;
+}
+#about-me .tabs-main li .tooltips {
+  position: absolute;
+  width: 78px;
+  top: -30px;
+  color: #fff;
+  text-align: center;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 12px;
+  text-transform: uppercase;
+  left: -16px;
+  opacity: 0;
+  visibility: hidden;
+  border-radius: 5px;
+}
+#about-me .tabs-main li:hover .tooltips {
+  opacity: 1;
+  visibility: visible;
+}
+#about-me .tabs-main .nav-tabs li::before {
+  position: absolute;
+  left: 18px;
+  bottom: 0;
+  width: 2px;
+  height: 100%;
+  content: "";
+  top: 0;
+}
+#about-me .tabs-main .nav-tabs li:last-child:before {
+  display: none;
+}
+#about-me .tabs-main .nav-tabs li a {
+  border: 0px;
+  border-radius: 100%;
+  margin: 0;
+  width: 40px;
+  background: #fff;
+  color: #353535;
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+  padding: 0;
+}
+#about-me .tabs-main .nav-tabs li.active a,
+#about-me .tabs-main .nav-tabs li:hover a {
+  color: #fff;
+}
+#about-me .tab-content {
+  background: #333;
+  padding: 30px 30px 30px 100px;
+  border-radius: 5px;
+}
+#about-me .tab-pane {
+  transition: all 0.4s ease;
+  width: 100%;
+}
+#about-me .tab-title {
+  position: relative;
+  display: inline-block;
+  padding-bottom: 15px;
+  margin-bottom: 15px;
+  font-size: 20px;
+  text-transform: uppercase;
+  color: #fff;
+}
+#about-me .tab-title:before {
+  position: absolute;
+  bottom: -1px;
+  content: "";
+  left: 0%;
+  width: 70%;
+  height: 2px;
+  border-radius: 100%;
+}
+#about-me .single-image {
+  position: relative;
+  overflow: hidden;
+}
+#about-me .single-image:before {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1;
+  display: block;
+  content: "";
+  width: 0;
+  height: 0;
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 100%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  opacity: 0;
+}
+#about-me .single-image:hover:before {
+  -webkit-animation: circle 0.75s;
+  animation: circle 0.75s;
+}
+#about-me .single-image {
+  position: relative;
+}
+#about-me .social {
+  width: 100%;
+  text-align: left;
+  margin-top: 20px;
+}
+#about-me .social ul li {
+  display: inline-block;
+  margin-right: 5px;
+}
+#about-me .social ul li a {
+  width: 30px;
+  height: 30px;
+  line-height: 30px;
+  background: #fff;
+  color: #353535;
+  display: block;
+  border-radius: 100%;
+  text-align: center;
+}
+#about-me .social ul li:hover a {
+  color: #fff;
+}
+#about-me .about-text .content p {
+  margin-bottom: 20px;
+  font-weight: 300;
+  color: #eee;
+}
+#about-me .about-text p:last-child {
+  margin: 0;
+}
+#about-me .single-skill {
+  margin-top: 15px;
+}
+#about-me .skill-info {
+  overflow: hidden;
+}
+#about-me .skill-info h4 {
+  float: left;
+  font-size: 14px;
+  margin-bottom: 12px;
+  color: #fff;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+#about-me .progress {
+  height: 8px;
+  border-radius: 0px;
+  box-shadow: none;
+  overflow: visible;
+}
+#about-me .progress .progress-bar {
+  position: relative;
+}
+#about-me .progress .progress-bar span {
+  font-size: 16px;
+  right: 0;
+  color: #fff;
+  position: absolute;
+  top: -17px;
+  width: 36px;
+  height: 36px;
+  line-height: 36px;
+  border-radius: 100%;
+  background: #fff;
+  font-size: 13px;
+  font-weight: 400;
+}
+#about-me .progress .progress-bar span:before {
+  position: absolute;
+  bottom: 0;
+}
+/*=======================
+	End About Me
+=========================*/
+
+/*=======================
+	Timeline CSS
+=========================*/
+#my-timeline {
+  background: #f5f5f5;
+}
+#my-timeline .section-title {
+  margin-bottom: 50px;
+}
+#my-timeline .timeline-inner {
+  position: relative;
+  padding: 20px 0;
+}
+#my-timeline .timeline-inner:before {
+  content: "";
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  margin-left: -2px;
+  position: absolute;
+  display: block;
+  height: 100%;
+  width: 4px;
+  left: 50%;
+  top: 0;
+}
+#my-timeline .single-timeline {
+  padding-right: 120px;
+}
+#my-timeline .single-main:nth-child(2n) .single-timeline {
+  padding-right: 0px;
+  padding-left: 120px;
+}
+#my-timeline .single-timeline .single-content {
+  background: #fff;
+  padding: 25px;
+  width: 50%;
+  position: relative;
+  -webkit-box-shadow: 1px 1px 6px rgba(20, 20, 20, 0.4);
+  -moz-box-shadow: 1px 1px 6px rgba(20, 20, 20, 0.4);
+  box-shadow: 1px 1px 6px rgba(20, 20, 20, 0.4);
+}
+#my-timeline .single-main:nth-child(2n) .single-timeline .single-content {
+  margin-left: 50.4%;
+}
+#my-timeline .single-timeline .single-content:before {
+  border: 15px solid transparent;
+  border-left-color: #ccc;
+  right: -31px;
+  top: 29px;
+  content: "";
+  position: absolute;
+  content: "";
+}
+#my-timeline .single-main:nth-child(2n) .single-timeline .single-content:before {
+  right: auto;
+  left: -31px;
+  border-left-color: transparent;
+  border-right-color: #ccc;
+}
+#my-timeline .single-timeline .single-content:after {
+  border: 15px solid transparent;
+  border-left-color: #fff;
+  right: -30px;
+  top: 26px;
+  content: "";
+  position: absolute;
+  content: "";
+}
+#my-timeline .single-main:nth-child(2n) .single-timeline .single-content:after {
+  left: -30px;
+  border-left-color: transparent;
+  border-right-color: #fff;
+  right: auto;
+}
+#my-timeline .single-timeline .date {
+  position: absolute;
+  right: -90px;
+  padding: 5px;
+  border-radius: 5px;
+  width: 60px;
+  text-align: center;
+  font-weight: 700;
+}
+#my-timeline .single-main:nth-child(2n) .single-timeline .date {
+  left: -93px;
+  right: auto;
+}
+#my-timeline .single-timeline .date p {
+  color: #fff;
+  margin: 0;
+}
+#my-timeline .single-timeline h2 {
+  font-size: 18px;
+  position: relative;
+  padding-bottom: 12px;
+  margin-bottom: 12px;
+  display: inline-block;
+  text-transform: uppercase;
+}
+#my-timeline .single-timeline h2::before {
+  position: absolute;
+  bottom: -1px;
+  content: "";
+  left: 0%;
+  width: 50px;
+  height: 2px;
+}
+/*=======================
+	End Timeline
+=========================*/
+
+/*=======================
+  Contact CSS
+=========================*/
+#contact {
+  position: relative;
+  /* top: 215px; */
+  z-index: 43;
+  /* margin-top: -215px; */
+}
+#contact .form {
+  margin-top: 30px;
+  background: #fff;
+  padding: 15px;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  height: 355px;
+}
+#contact .form-group {
+  position: relative;
+  display: block;
+  margin: 0 0 25px;
+}
+#contact .form-group i {
+  position: absolute;
+  font-size: 16px;
+  padding: 15px 12px;
+}
+#contact .form-group input {
+  width: 100%;
+  height: 50px;
+  border: 1px solid #ddd;
+  padding-left: 10px;
+  border-radius: 5px;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+  font-weight: 400;
+}
+#contact .form-group textarea {
+  border: 1px solid #ddd;
+  padding: 10px;
+  width: 100%;
+  border-radius: 5px;
+  padding-left: 10px;
+  resize: none;
+  height: 173px;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+#contact .form-group input:hover,
+#contact .form-group input:focus,
+#contact .form-group textarea:hover {
+  outline: none;
+}
+#contact .form-group .button {
+  padding: 10px 30px;
+  font-size: 14px;
+  text-transform: uppercase;
+  display: inline-block;
+  border: 0px solid;
+  color: #fff;
+  border-radius: 5px;
+  -webkit-transition: all 0.4s ease;
+  -moz-transition: all 0.4s ease;
+  transition: all 0.4s ease;
+}
+#contact .form-group .button:hover {
+  background: #252525;
+}
+#contact .form-group .button i {
+  position: relative;
+  display: inline-block;
+  color: #fff;
+  margin-right: 10px;
+  padding: 0px;
+}
+#contact .form-group.button {
+  margin: 0;
+}
+#contact .contact {
+  margin-top: 30px;
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  -moz-box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  height: 355px;
+}
+#contact .single-address {
+  position: relative;
+  margin-bottom: 34px;
+}
+#contact .single-address:last-child {
+  margin: 0;
+}
+#contact .single-address i {
+  position: absolute;
+  left: 0;
+  width: 40px;
+  height: 40px;
+  line-height: 40px;
+  border: 1px solid #ddd;
+  text-align: center;
+  font-size: 20px;
+  top: 50%;
+  margin-top: -20px;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+#contact .single-address:hover i {
+  color: #fff;
+  border-color: transparent;
+}
+#contact .single-address .title {
+  margin-left: 60px;
+}
+#contact .single-address h4 {
+  margin-bottom: 15px;
+}
+#contact .single-address p {
+  color: #555;
+}
+/*=======================
+  End Contact
+=========================*/
+
+/*=======================
+  Footer CSS
+=========================*/
+#footer {
+  background: #333;
+  padding: 15px 0 10px;
+  text-align: center;
+  position: relative;
+}
+#footer .arrow a {
+  font-size: 30px;
+  position: absolute;
+  top: -15px;
+  left: 50%;
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  line-height: 44px;
+  border-radius: 100%;
+  margin-left: -22px;
+  display: block;
+  padding: 0;
+  z-index: 99;
+}
+#footer .arrow a:hover {
+  background: #333;
+}
+#footer .copyright {
+  padding: 5px 0;
+  text-align: left;
+}
+#footer .copyright p {
+  color: #fff;
+  margin: 0;
+}
+#footer .copyright span {
+  margin: 0px 5px;
+}
+#footer .social {
+  text-align: right;
+}
+#footer .social li {
+  margin-right: 15px;
+  display: inline-block;
+}
+#footer .social li a {
+  display: block;
+  line-height: 28px;
+  font-size: 15px;
+  color: #fff;
+}
+/*=======================
+  End Footer
+=========================*/
