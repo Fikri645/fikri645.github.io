@@ -16,8 +16,8 @@
 .myalert {
   position: relative;
   background-color: #20c997;
-  height: 100px;
-  width: 250px;
+  height: 6.7rem;
+  width: 29rem;
   border-radius: 8px;
   margin-bottom: 10px;
   color: #fff;
@@ -28,9 +28,13 @@
 .myalert span {
   font-size: 1.3rem;
   position: absolute;
-  top: 3px;
-  right: 12px;
+  top: center;
+  right: 2rem;
   cursor: pointer;
+}
+
+.loadingspin {
+  animation: fa-spin 2s linear infinite;
 }
 
 /*=======================
@@ -983,3 +987,7 @@
 /*=======================
   End Footer
 =========================*/
+
+#contact .form-group .myd-none {
+  display: none;
+}

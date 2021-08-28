@@ -421,7 +421,8 @@
                 </div>
                 <div class="col-md-12">
                   <div class="form-group button">
-                    <button type="submit" class="button primary" id="alertsubmit"><i class="fa fa-send"></i>Submit</button>
+                    <button type="submit" class="button primary btn-muncul" id="contactsubmit"><i class="fa fa-send"></i>Submit</button>
+                    <button type="submit" class="button primary btn-hilang myd-none" id="loadingsubmit"><i class="fa fa-spinner loadingspin"></i>Submit</button>
                   </div>
                 </div>
               </div>
@@ -555,7 +556,7 @@
     <script>
       // Alert
       const alertContainer = document.querySelector(".myalert-container");
-      const btnSubmit = document.getElementById("alertsubmit");
+      const btnSubmit = document.getElementById("contactsubmit");
 
       const createAlert = () => {
         const newAlert = document.createElement("div");
@@ -590,12 +591,19 @@
       // Submit Form
       const scriptURL = "https://script.google.com/macros/s/AKfycbw83E73Ez1K7l2BNmUnqqBqjJi05dYzW90DkGb1BETDU5AlWn0i1BxqYsyzhg-1YvnOdw/exec";
       const form = document.forms["submit-to-google-sheet"];
+      const btnMuncul = document.querySelector(".btn-muncul");
+      const btnHilang = document.querySelector(".btn-hilang");
 
       form.addEventListener("submit", (e) => {
         e.preventDefault();
+
+        btnHilang.classList.toggle("myd-none");
+        btnMuncul.classList.toggle("myd-none");
         fetch(scriptURL, { method: "POST", body: new FormData(form) })
           .then((response) => {
             console.log("Success!", response);
+            btnHilang.classList.toggle("myd-none");
+            btnMuncul.classList.toggle("myd-none");
             createAlert();
             form.reset();
           })
