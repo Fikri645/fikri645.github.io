@@ -155,11 +155,11 @@
             <div class="tabs-main">
               <!-- Tab Menu -->
               <ul class="nav nav-tabs" role="tablist">
-                <li role="presentation" class="active">
-                  <span class="tooltips">About Me</span><a href="#welcome" role="tab" data-toggle="tab"><i class="fa fa-user"></i></a>
+                <li id="about-list" role="presentation" class="active">
+                  <span class="tooltips">About Me</span><a href="#welcome" class="pulse-saya" onclick="myPulse()" role="tab" data-toggle="tab"><i class="fa fa-user"></i></a>
                 </li>
-                <li role="presentation">
-                  <span class="tooltips">My Skill</span><a href="#skill" role="tab" data-toggle="tab"><i class="fa fa-graduation-cap"></i></a>
+                <li id="about-list2" role="presentation">
+                  <span class="tooltips">My Skill</span><a href="#skill" class="pulse-saya2 mypulse" onclick="myPulse2()" role="tab" data-toggle="tab"><i class="fa fa-list"></i></a>
                 </li>
               </ul>
               <!--/ End Tab Menu -->
@@ -554,6 +554,44 @@
 
     <!-- My Script -->
     <script>
+      // Pulse Animation
+      const aboutList = document.querySelector("#about-list");
+      const aboutList2 = document.querySelector("#about-list2");
+      const pulseSaya = document.querySelector(".pulse-saya");
+      const pulseSaya2 = document.querySelector(".pulse-saya2");
+
+      function myPulse() {
+        pulseSaya.classList.remove("mypulse");
+        pulseSaya2.classList.add("mypulse");
+      }
+
+      function myPulse2() {
+        pulseSaya.classList.add("mypulse");
+        pulseSaya2.classList.remove("mypulse");
+      }
+
+      // if (aboutList.classList.contains("active")) {
+      //   pulseSaya.classList.toggle("mypulse");
+      //   pulseSaya2.classList.toggle("mypulse");
+      // }
+      // if (aboutList2.classList.contains("active")) {
+      //   pulseSaya.classList.toggle("mypulse");
+      //   pulseSaya2.classList.toggle("mypulse");
+      // }
+
+      // if (aboutList.classList.contains("active")) {
+      //   pulseSaya.classList.remove("mypulse");
+      // } else {
+      //   pulseSaya.classList.add("mypulse");
+      // }
+      // if (aboutList2.classList.contains("active")) {
+      //   pulseSaya2.classList.remove("mypulse");
+      // } else {
+      //   pulseSaya2.classList.add("mypulse");
+      // }
+
+      // End Pulse Animation
+
       // Alert
       const alertContainer = document.querySelector(".myalert-container");
       const btnSubmit = document.getElementById("contactsubmit");
@@ -586,7 +624,7 @@
           e.target.parentNode.remove();
         }
       });
-      // EndAlert
+      // End Alert
 
       // Submit Form
       const scriptURL = "https://script.google.com/macros/s/AKfycbw83E73Ez1K7l2BNmUnqqBqjJi05dYzW90DkGb1BETDU5AlWn0i1BxqYsyzhg-1YvnOdw/exec";
